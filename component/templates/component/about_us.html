@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+{% block title %}
+    About Us
+{% endblock %}
+
+{% block header %}
+<div class="container mx-auto px-4 py-16 mt-20">
+  <!-- Title with animated underline -->
+  <div class="text-center mb-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 relative inline-block animate-fade-in-up">
+      About Us
+      <span class="block h-1 bg-yellow-500 w-0 mt-2 mx-auto animate-underline"></span>
+    </h1>
+  </div>
+
+  <!-- Content Box -->
+  <div class="relative max-w-5xl mx-auto bg-white border border-gray-200 shadow-xl rounded-3xl px-8 py-10 md:py-12 lg:px-12 text-gray-700 animate-slide-in-up overflow-hidden">
+    <!-- Decorative Background Blobs -->
+    <div class="absolute -top-16 -left-16 w-48 h-48 bg-yellow-100 rounded-full blur-2xl opacity-40 z-0"></div>
+    <div class="absolute -bottom-16 -right-16 w-48 h-48 bg-pink-100 rounded-full blur-2xl opacity-40 z-0"></div>
+
+    <!-- Text Content -->
+    <div class="relative z-10 space-y-6 text-lg leading-relaxed">
+      <p class="animate-fade-in-up opacity-0 delay-[0ms]">
+        Welcome to <strong class="text-yellow-600">Chaukhat Patrika</strong> — your sanctuary for the written word. Whether you're an avid reader or simply book-curious, we’re here to spark and sustain your literary journey.
+      </p>
+      <p class="animate-fade-in-up opacity-0 delay-[100ms]">
+        Our mission is simple: to connect readers with stories that <span class="text-blue-600 font-medium">inspire, educate, and entertain</span>. From timeless classics to bold new voices, we celebrate every genre and every storyteller.
+      </p>
+      <p class="animate-fade-in-up opacity-0 delay-[200ms]">
+        Founded in <strong>2024</strong> by bibliophiles with a shared dream, <strong>Chaukhat Patrika</strong> is more than a platform — it's a vibrant literary community. With curated picks, honest reviews, and personalized experiences, discovering your next favorite book becomes a joy.
+      </p>
+      <p class="animate-fade-in-up opacity-0 delay-[300ms]">
+        Come turn the page with us. Let's celebrate stories, voices, and the beauty of books — one reader at a time.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Custom Animations -->
+<style>
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-up {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes underline-grow {
+  from { width: 0; }
+  to { width: 100px; }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 1s ease-out forwards;
+}
+
+.animate-underline {
+  animation: underline-grow 0.6s ease-out forwards;
+}
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="text-center mb-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 relative inline-block animate-fade-in-up">
+      Our Team
+      <span class="block h-1 bg-yellow-500 w-0 mt-2 mx-auto animate-underline"></span>
+    </h1>
+</div>
+
+<!-- Container and Grid -->
+<div class="container mx-auto px-4 mt-10 mb-[50px]">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+    {% for member in members %}
+    <div class="relative w-full max-w-[360px] h-[440px] flex flex-col bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-[1.03] hover:shadow-xl duration-300 group">
+
+      <!-- Member Image with Overlay -->
+      <div class="relative w-full h-full">
+        <img class="object-cover w-full h-full" src="{{ member.image.url }}" alt="{{ member.name }}">
+
+        <!-- Hover Overlay -->
+        <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 opacity-0 group-hover:opacity-100">
+          <h5 class="text-white text-xl font-semibold animate-slideUp">{{ member.name }}</h5>
+          <p class="text-white text-sm mt-1 animate-slideUp delay-150">{{ member.position }}</p>
+          {% if member.description %}
+          <p class="text-white text-xs mt-2 line-clamp-3 animate-fadeIn delay-150">{{ member.description }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Bottom Details -->
+      <div class="bg-gray-50 px-4 py-3 text-center">
+        <p class="text-sm text-gray-700 font-medium">{{ member.email }}</p>
+        {% if member.contact %}
+        <p class="text-xs text-gray-500 font-light mt-1">संपर्क संख्या: {{ member.contact }}</p>
+        {% endif %}
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Animations -->
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.delay-150 {
+  animation-delay: 0.15s;
+}
+</style>
+
+
+
+{% endblock %}

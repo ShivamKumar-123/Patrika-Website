@@ -1,0 +1,209 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+    all cards
+{% endblock %}
+
+{% block header %}
+<div id="controls-carousel" class="relative w-full mt-[70px]" data-carousel="static">
+  <!-- Carousel wrapper -->
+  <div class="relative h-[300px] md:h-[500px] overflow-hidden rounded-lg bg-indigo-100 text-white">
+
+    <!-- Slide 1 -->
+    <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+      <div class="relative w-full h-full">
+        <img src="{% static 'img/book1.jpg' %}" alt="Bookshelf background"
+             class="absolute inset-0 w-full h-full object-cover brightness-75" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
+          <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
+            Explore Every Book of <span class="text-yellow-300">चौखट पत्रिका</span>
+          </h2>
+          <p class="text-base md:text-lg font-medium drop-shadow-md animate-fadeIn delay-150">
+            A world of stories, ideas, and imagination—all in one place.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <div class="relative w-full h-full">
+        <img src="{% static 'img/book2.jpg' %}" alt="Open book background"
+             class="absolute inset-0 w-full h-full object-cover brightness-75" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
+          <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
+            Stories That Stay With You
+          </h2>
+          <p class="text-base md:text-lg font-medium drop-shadow-md animate-fadeIn delay-150">
+            Dive into books that spark thought, emotion, and change.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <div class="relative w-full h-full">
+        <img src="{% static 'img/book3.jpg' %}" alt="Library background"
+             class="absolute inset-0 w-full h-full object-cover brightness-75" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
+          <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
+            From Classics to New Voices
+          </h2>
+          <p class="text-base md:text-lg font-medium drop-shadow-md animate-fadeIn delay-150">
+            A collection where timeless works meet bold, fresh perspectives.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <div class="relative w-full h-full">
+        <img src="{% static 'img/book4.jpg' %}" alt="Reading book background"
+             class="absolute inset-0 w-full h-full object-cover brightness-75" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
+          <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
+            Every Book Has a Journey
+          </h2>
+          <p class="text-base md:text-lg font-medium drop-shadow-md animate-fadeIn delay-150">
+            Discover hidden gems, poetic voices, and powerful narratives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slider controls -->
+  <button type="button"
+          class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-prev>
+    <span
+      class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+      <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5 1 1 5l4 4" />
+      </svg>
+      <span class="sr-only">Previous</span>
+    </span>
+  </button>
+  <button type="button"
+          class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-next>
+    <span
+      class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+      <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 9 4-4-4-4" />
+      </svg>
+      <span class="sr-only">Next</span>
+    </span>
+  </button>
+</div>
+
+<!-- Flowbite JS -->
+<script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+
+<!-- Custom Animations -->
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 1s ease-out forwards;
+}
+
+.delay-150 {
+  animation-delay: 0.15s;
+}
+</style>
+
+{% endblock %}
+
+
+{% comment %} other content of the html page here  {% endcomment %}
+
+{% block content %}
+
+<div class="container mx-auto px-4 mt-10 mb-[50px]">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+    {% for card in allCards %}
+    <div class="relative w-full max-w-[350px] h-[450px] bg-white border border-gray-200 rounded-2xl shadow-2xl dark:border-gray-700 dark:bg-gray-800 overflow-hidden transition-transform transform hover:scale-105 duration-300 group">
+
+      {% if card.image %}
+      <div class="relative w-full h-full">
+        <!-- Image -->
+        <img class="object-cover w-full h-full" src="{{ card.image.url }}" alt="{{ card.name }}">
+
+        <!-- Overlay Content -->
+        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-6 py-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+          <h5 class="text-white text-2xl font-semibold animate-slideUp">{{ card.name }}</h5>
+          <p class="text-white text-sm mt-3 line-clamp-3 animate-fadeIn delay-150">{{ card.description }}</p>
+
+          <!-- Buttons -->
+          <div class="flex flex-wrap justify-center gap-3 mt-6">
+            <a href="{{ card.urls }}" target="_blank" rel="noopener">
+              <button type="button" 
+                      class="h-9 px-5 bg-green-500 text-white text-sm rounded-md transition duration-300 hover:bg-yellow-500 hover:text-black">
+                Read
+              </button>
+            </a>
+
+
+            {% if card.urls %}
+            <a href="{{ card.urls }}" download>
+              <button type="button" class="h-9 px-5 bg-blue-500 text-white text-sm rounded-md transition duration-300 hover:bg-[wheat] hover:text-black">
+                Download
+              </button>
+            </a>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Animations -->
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.delay-150 {
+  animation-delay: 0.15s;
+}
+</style>
+
+
+
+{% endblock %}

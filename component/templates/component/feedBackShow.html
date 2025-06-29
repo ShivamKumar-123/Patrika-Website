@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Show Feedback
+{% endblock %}
+
+{% block content %}
+    <div class="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 pt-12 pb-0 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+        <div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-10 animate-fadeInUp">
+            <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">
+                🌟 Feedback Received
+            </h1>
+            <p class="text-lg text-gray-700 mb-6 text-center">
+                Thank you for your feedback! Here are the details:
+            </p>
+            <div class="space-y-4">
+                {% for feedback in feedbacks %}
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h2 class="text-xl font-semibold text-indigo-600">{{ feedback.title }}</h2>
+                        <p class="mt-2 text-gray-700">{{ feedback.content }}</p>
+                        <p class="mt-4 text-sm text-gray-500">Submitted on: {{ feedback.created_at|date:"Y-m-d H:i" }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

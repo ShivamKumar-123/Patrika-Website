@@ -1,0 +1,143 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!-- Animation Styles -->
+{% load widget_tweaks %}
+
+{% comment %} <style>
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out;
+  }
+</style>
+
+
+<!-- Page Container -->
+<div class="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 pt-12 pb-0 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+  <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 sm:p-10 animate-fadeInUp">
+
+    <!-- Heading -->
+    <h2 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">
+      🔐 <span class="font-bold">Login</span>
+    </h2>
+
+    <!-- Login Form -->
+    <form method="post" action="{% url 'login' %}" class="space-y-6">
+      {% csrf_token %}
+      {% for field in form %}
+      <div>
+        <label for="{{ field.id_for_label }}" class="block text-sm font-semibold text-gray-700 mb-2">
+          {{ field.label }}
+        </label>
+        {{ field|add_class:"w-full px-4 py-3 border border-gray-300 rounded-xl bg-gray-50 text-gray-800 placeholder-gray-400 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition duration-300" }}
+        {% if field.errors %}
+          <p class="mt-1 text-sm text-red-500">{{ field.errors|striptags }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+
+      <!-- Submit Button -->
+      <button type="submit"
+        class="w-full bg-gradient-to-r from-blue-600 to-purple-500 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:from-purple-500 hover:to-pink-500 transition-transform transform hover:scale-105 duration-300">
+        🔓 Login
+      </button>
+    </form>
+
+    <!-- Register Link -->
+    <p class="mt-6 text-center text-sm text-gray-700">
+      Don't have an account?
+      <a href="{% url 'signup' %}" class="text-blue-600 hover:underline font-medium">Register here</a>
+    </p>
+
+    <!-- Admin Section -->
+    <div class="mt-10 border-t pt-6">
+      <h3 class="text-lg font-semibold text-gray-800 mb-4 text-center">Admin Access</h3>
+      <a href="/admin/login/" class="block text-center w-full bg-gradient-to-r from-gray-800 to-gray-600 text-white font-semibold py-3 rounded-xl shadow hover:from-gray-700 hover:to-gray-500 transition-transform transform hover:scale-105 duration-300">
+        🔧 Go to Admin Panel
+      </a>
+    </div>
+
+  </div>
+</div> {% endcomment %}
+
+<style>
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out;
+  }
+</style>
+
+<!-- Page Container -->
+<div class="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 pt-12 pb-0 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+  <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 sm:p-10 animate-fadeInUp">
+
+    <!-- Heading -->
+    <h2 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">
+      🔐 <span class="font-bold">Login</span>
+    </h2>
+
+    <!-- Login Form -->
+    <form method="post" action="{% url 'login' %}" class="space-y-6">
+      {% csrf_token %}
+      {% for field in form %}
+      <div>
+        <label for="{{ field.id_for_label }}" class="block text-sm font-semibold text-gray-700 mb-2">
+          {{ field.label }}
+        </label>
+        {{ field|add_class:"w-full px-4 py-3 border border-gray-300 rounded-xl bg-gray-50 text-gray-800 placeholder-gray-400 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition duration-300" }}
+        {% if field.errors %}
+          <p class="mt-1 text-sm text-red-500">{{ field.errors|striptags }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+
+      <!-- Forgot Password Link -->
+      <div class="text-right">
+        <a href="#" class="text-sm text-blue-600 hover:underline font-medium">
+          Forgot password?
+        </a>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit"
+        class="w-full bg-gradient-to-r from-blue-600 to-purple-500 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:from-purple-500 hover:to-pink-500 transition-transform transform hover:scale-105 duration-300">
+        🔓 Login
+      </button>
+    </form>
+
+    <!-- Register Link -->
+    <p class="mt-6 text-center text-sm text-gray-700">
+      Don't have an account?
+      <a href="{% url 'signup' %}" class="text-blue-600 hover:underline font-medium">Register here</a>
+    </p>
+
+    <!-- Admin Section -->
+    <div class="mt-10 border-t pt-6">
+      <h3 class="text-lg font-semibold text-gray-800 mb-4 text-center">Admin Access</h3>
+      <a href="/admin/login/" class="block text-center w-full bg-gradient-to-r from-gray-800 to-gray-600 text-white font-semibold py-3 rounded-xl shadow hover:from-gray-700 hover:to-gray-500 transition-transform transform hover:scale-105 duration-300">
+        🔧 Go to Admin Panel
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

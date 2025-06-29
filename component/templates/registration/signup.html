@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block content %}
+<!-- Animation Styles -->
+<style>
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+</style>
+
+<!-- Form Page Container -->
+<div class="min-h-screen mt-[-50px] bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 pt-12 pb-0 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+  <div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-10 animate-fadeInUp">
+    <div class="bg-gray-100 py-12 ">
+        <h1 class="text-4xl font-bold text-center text-gray-800">Create Your Account</h1>
+    </div>
+
+    <!-- Form -->
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+
+      {% for field in form %}
+      <div>
+        <label for="{{ field.id_for_label }}" class="block mb-2 text-sm font-semibold text-gray-700">
+          {{ field.label }}
+        </label>
+        {{ field }}
+        {% if field.help_text %}
+        <p class="text-sm text-gray-500 mt-1">{{ field.help_text }}</p>
+        {% endif %}
+        {% for error in field.errors %}
+        <p class="text-sm text-red-500 mt-1">{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+      <!-- Submit Button -->
+      <button type="submit"
+        class="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:from-purple-500 hover:to-pink-500 transition-transform transform hover:scale-105 duration-300">
+        ✅ Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Tailwind Input Styling Fix -->
+<style>
+input, textarea, select {
+  @apply w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400;
+}
+</style>
+
+{% endblock %}

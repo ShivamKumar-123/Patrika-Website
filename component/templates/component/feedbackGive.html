@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Give Feedback
+{% endblock %}
+
+{% block content %}
+
+<!-- Animation Styles -->
+<style>
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+</style>
+
+<!-- Feedback Page Container -->
+<div class="mt-[25px] min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 pt-12 pb-0 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-10 animate-fadeInUp">
+
+        <!-- Heading -->
+        <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">
+            🌟 We Value Your Feedback
+        </h1>
+
+        <!-- Feedback Form -->
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div>
+                <label class="block mb-2 text-sm font-semibold text-gray-700">{{ field.label_tag }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <p class="mt-1 text-sm text-red-500">{{ field.errors|striptags }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:from-purple-500 hover:to-pink-500 transition-transform transform hover:scale-105 duration-300">
+                🚀 Submit Feedback
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Tailwind Form Field Fix (optional, if widgets not used) -->
+<style>
+input, textarea, select {
+  @apply w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400;
+}
+</style>
+
+{% endblock %}
+
+
+
+

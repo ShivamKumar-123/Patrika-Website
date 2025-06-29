@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+{% block title %}
+    New Arrivals
+{% endblock %}
+
+{% block header %}
+  <div id="controls-carousel" class="relative w-full mt-[70px]" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative h-[300px] md:h-[500px] overflow-hidden rounded-lg bg-indigo-100 text-white">
+
+      <!-- Slide 1 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+        <div class="relative w-full h-full">
+          <img src="{% static 'img/book1.jpg' %}" alt="Book background 1"
+              class="absolute inset-0 w-full h-full object-cover brightness-75" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
+              A New Chapter Begins at <span class="text-yellow-300">चौखट पत्रिका</span>
+            </h2>
+            <p class="text-base md:text-lg font-medium drop-shadow-md animate-fadeIn delay-150">
+              Embracing the future while honoring our literary roots.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <div class="relative w-full h-full">
+          <img src="{% static 'img/book2.jpg' %}" alt="Book background 2"
+              class="absolute inset-0 w-full h-full object-cover brightness-75" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
+              Voices of a New Generation
+            </h2>
+            <p class="text-base md:text-lg font-medium drop-shadow-md animate-fadeIn delay-150">
+              Fresh perspectives. Unfiltered expressions. Literary awakening.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <div class="relative w-full h-full">
+          <img src="{% static 'img/book3.jpg' %}" alt="Book background 3"
+              class="absolute inset-0 w-full h-full object-cover brightness-75" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
+              Discover. Create. Inspire.
+            </h2>
+            <p class="text-base md:text-lg font-medium drop-shadow-md animate-fadeIn delay-150">
+              We’re more than a magazine—we're a movement for meaningful voices.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <div class="relative w-full h-full">
+          <img src="{% static 'img/book4.jpg' %}" alt="Book background 4"
+              class="absolute inset-0 w-full h-full object-cover brightness-75" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
+              New Words, New Worlds
+            </h2>
+            <p class="text-base md:text-lg font-medium drop-shadow-md animate-fadeIn delay-150">
+              Dive into literature that redefines today—and imagines tomorrow.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider controls -->
+    <button type="button"
+            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+        <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 1 1 5l4 4" />
+        </svg>
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+    <button type="button"
+            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+        <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 9 4-4-4-4" />
+        </svg>
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Flowbite JS -->
+  <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+
+  <!-- Custom Animations -->
+  <style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 1s ease-out forwards;
+  }
+
+  .delay-150 {
+    animation-delay: 0.15s;
+  }
+  </style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container mx-auto px-4 mt-10 mb-[50px]">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+    {% for book in books %}
+    <div class="relative w-full max-w-[360px] flex flex-col bg-white border border-gray-200 rounded-xl shadow-md dark:border-gray-700 dark:bg-gray-800 overflow-hidden transition-transform transform hover:scale-[1.03] hover:shadow-xl duration-300 group">
+
+      <!-- Coming Soon Tag -->
+      <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded shadow-md z-20">
+        Coming Soon
+      </div>
+
+      {% if book.image %}
+      <div class="relative w-full h-[440px] overflow-hidden">
+        <!-- Book Image -->
+        <img class="object-cover w-full h-full" src="{{ book.image.url }}" alt="{{ book.name }}">
+
+        <!-- Hover Overlay -->
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300 z-10">
+          <h5 class="text-white text-xl font-semibold animate-slideUp">{{ book.name }}</h5>
+          <p class="text-white text-sm mt-2 line-clamp-3 animate-fadeIn delay-150">{{ book.description }}</p>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<!-- Animations -->
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.delay-150 {
+  animation-delay: 0.15s;
+}
+</style>
+
+
+
+{% endblock %}

@@ -1,0 +1,182 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>
+        {% block title %}
+            Tarun patrika
+        {% endblock %}
+    </title>
+
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {% tailwind_css %}
+    
+    
+</head>
+<body >
+
+    <nav class="fixed top-0 w-full z-50 bg-black border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="#" class="text-xl font-semibold text-white">चौखट पत्रिका</a>
+                
+                <div class="hidden lg:flex lg:items-center lg:space-x-6">
+                    <ul class="flex flex-col lg:flex-row lg:space-x-6">
+                        <li><a href="{% url 'home' %}" class="text-white font-medium">Home</a></li>
+                        <li><a href="{% url 'newArrival' %}" class="text-white font-medium hover:text-indigo-300">New Arrivals</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                        <li><a href="{% url 'aboutUs' %}" class="text-gray-300 hover:text-white">About Us</a></li>
+                    </ul>
+                </div>
+
+                {% if user.is_authenticated %}
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" style="margin-top: 10px; background-color: white; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                        Logout
+                    </button>
+                </form>
+
+                {% else %}
+                    <a href="/accounts/login" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">
+                        Login
+                    </a>
+                {% endif %}
+
+                <div class="lg:hidden">
+                    <button class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                
+            </div>
+        </div>
+    </nav> 
+
+
+
+        {% comment %} <div class="container mx-auto px-4 mt-20 mb-10">
+
+            
+            {% block header %}{% endblock %}
+            {% block content %}{% endblock %}
+            
+    
+        </div> {% endcomment %}
+        {% block header %}{% endblock %}
+        {% block content %}{% endblock %}
+
+
+
+    {% comment %} <footer class="bottom-0 left-0 w-full bg-[#0f172a] text-gray-400 py-6 px-6 rounded-t-xl shadow-md">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+    
+        <!-- Left: Copyright -->
+        <div>
+            <p class="text-sm">© 2024 Your Company, Inc. All rights reserved.</p>
+        </div>
+
+        <!-- Center: Contact Info -->
+        <div>
+            <h4 class="text-white font-semibold mb-2" id="contact">Contact Us</h4>
+            <p>Email: <a href="mailto:tarunkumar@gmail.com" class="text-indigo-400 hover:underline">tarunkumar@gmail.com</a></p>
+            <p>Phone: <a href="tel:+918745214563" class="text-indigo-400 hover:underline">+91 8745214563</a></p>
+        </div>
+
+        <!-- Right: Feedback and Social Icons -->
+        <div class="flex flex-col md:items-end items-start space-y-3">
+            <a href="{% url 'feedback' %}" target="_blank"
+                class="inline-block text-sm px-4 py-2 bg-indigo-600 text-white font-medium rounded-md shadow hover:bg-indigo-700 transform hover:scale-105 transition duration-300">
+                Feedback
+            </a>
+
+            <div class="flex space-x-5 text-lg">
+                <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+    </div>
+</footer> {% endcomment %}
+
+<footer class="w-full bg-[#0f172a] text-gray-400 py-8 px-6 rounded-t-xl shadow-md">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+
+        <!-- Left: Copyright -->
+        <div class="text-center md:text-left">
+            <p class="text-sm">© 2024 Your Company, Inc. All rights reserved.</p>
+        </div>
+
+        <!-- Center: Contact Info -->
+        <div class="text-center md:text-left">
+            <h4 class="text-white font-semibold mb-2" id="contact">Contact Us</h4>
+            <p>Email:
+                <a href="mailto:tarunkumar@gmail.com" class="text-indigo-400 hover:underline">
+                    tarunkumar@gmail.com
+                </a>
+            </p>
+            <p>Phone:
+                <a href="tel:+918745214563" class="text-indigo-400 hover:underline">
+                    +91 8745214563
+                </a>
+            </p>
+        </div>
+
+        <!-- Right: Buttons + Social -->
+        <div class="flex flex-col items-center md:items-end space-y-4">
+            <!-- Feedback Buttons -->
+            <div class="space-y-2">
+                
+                {% if user.is_authenticated %}
+                    <a href="{% url 'feedback' %}" class="inline-block  text-sm px-4 py-2 bg-indigo-600 text-white font-medium rounded-md shadow hover:bg-indigo-700 transform hover:scale-105 transition duration-300">
+                        Feedback
+                    </a>
+
+                    
+                    
+                    <button onclick="document.getElementById('feedback-section').scrollIntoView({ behavior: 'smooth' })"
+                        class="inline-block  text-sm px-4 py-2 bg-indigo-600 text-white font-semibold rounded-md shadow hover:bg-indigo-700 transform hover:scale-105 transition duration-300">
+                        Show Feedback
+                    </button>
+                {% endif %}
+                    
+            </div>
+
+            
+            <!-- Social Icons -->
+            <div class="flex space-x-5 text-lg">
+                <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</footer>
+
+
+    
+    <script src="{% static 'script.js' %}"></script>
+
+</body>
+</html>
