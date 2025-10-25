@@ -70,38 +70,54 @@
 
 {% endblock %}
 
-
 {% block content %}
 
+<!-- Title Section -->
 <div class="text-center mb-10">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 relative inline-block animate-fade-in-up">
-      Our Team
-      <span class="block h-1 bg-yellow-500 w-0 mt-2 mx-auto animate-underline"></span>
-    </h1>
+  <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 relative inline-block">
+    Our Team
+    <span class="block h-1 bg-yellow-500 w-16 mt-2 mx-auto"></span>
+  </h1>
 </div>
 
 <!-- Container and Grid -->
 <div class="container mx-auto px-4 mt-10 mb-[50px]">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
     {% for member in members %}
-    <div class="relative w-full max-w-[360px] h-[440px] flex flex-col bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-[1.03] hover:shadow-xl duration-300 group">
+    <div 
+      class="relative w-full max-w-[360px] h-[440px] flex flex-col bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-[1.03] hover:shadow-xl duration-300 group"
+      data-aos="fade-up" 
+      data-aos-duration="1000" 
+      data-aos-delay="{{ forloop.counter0|add:1 }}00">
 
       <!-- Member Image with Overlay -->
       <div class="relative w-full h-full">
         <img class="object-cover w-full h-full" src="{{ member.image.url }}" alt="{{ member.name }}">
 
         <!-- Hover Overlay -->
-        <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 opacity-0 group-hover:opacity-100">
-          <h5 class="text-white text-xl font-semibold animate-slideUp">{{ member.name }}</h5>
-          <p class="text-white text-sm mt-1 animate-slideUp delay-150">{{ member.position }}</p>
+        <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 opacity-0 group-hover:opacity-100 z-10">
+          <h5 class="text-white text-xl font-semibold" data-aos="zoom-in" data-aos-delay="300">{{ member.name }}</h5>
+          <p class="text-white text-sm mt-1" data-aos="zoom-in" data-aos-delay="400">{{ member.position }}</p>
           {% if member.description %}
-          <p class="text-white text-xs mt-2 line-clamp-3 animate-fadeIn delay-150">{{ member.description }}</p>
+          <p class="text-white text-xs mt-2 line-clamp-3" data-aos="fade-up" data-aos-delay="500">{{ member.description }}</p>
+          {% endif %}
+
+          <!-- Buttons (Admin Only) -->
+          {% if user.id == 1 %}
+          <div class="mt-4 flex space-x-5" data-aos="zoom-in-up" data-aos-delay="600">
+            <a href="{% url 'update_member' member.id %}" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded shadow transition">
+              ✏️ Update
+            </a>
+            <a href="{% url 'delete_member' member.id %}" class="bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-2 px-4 rounded shadow transition">
+              🗑️ Delete
+            </a>
+          </div>
           {% endif %}
         </div>
       </div>
 
       <!-- Bottom Details -->
-      <div class="bg-gray-50 px-4 py-3 text-center">
+      <div class="bg-gray-50 px-4 py-3 text-center z-0">
         <p class="text-sm text-gray-700 font-medium">{{ member.email }}</p>
         {% if member.contact %}
         <p class="text-xs text-gray-500 font-light mt-1">संपर्क संख्या: {{ member.contact }}</p>
@@ -113,31 +129,13 @@
   </div>
 </div>
 
-<!-- Animations -->
-<style>
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-.animate-slideUp {
-  animation: slideUp 0.6s ease-out forwards;
-}
-
-.delay-150 {
-  animation-delay: 0.15s;
-}
-</style>
-
-
+<script>
+  AOS.init({
+    duration: 1200,  // animation duration (ms)
+    once: true,      // animation happens only once
+    easing: 'ease-in-out', // smoothness
+  });
+</script>
 
 {% endblock %}

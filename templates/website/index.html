@@ -7,7 +7,7 @@
 
 {% block header %}
 
-<div id="controls-carousel" class="relative w-full mt-[70px]" data-carousel="static">
+<div id="controls-carousel" class="relative w-full mt-[20px]" data-carousel="static">
   <!-- Carousel wrapper -->
   <div class="relative h-[300px] md:h-[500px] overflow-hidden rounded-lg bg-indigo-100 text-white">
 
@@ -15,7 +15,7 @@
     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
       <div class="relative w-full h-full">
         <img src="{% static 'img/book6.jpg' %}" alt="Book background 1"
-             class="absolute inset-0 w-full h-full object-cover brightness-75" />
+              class="absolute inset-0 w-full h-full object-cover brightness-75" />
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
           <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
             Welcome to <span class="text-yellow-300">चौखट पत्रिका</span>
@@ -31,7 +31,7 @@
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
       <div class="relative w-full h-full">
         <img src="{% static 'img/book7.jpg' %}" alt="Book background 2"
-             class="absolute inset-0 w-full h-full object-cover brightness-75" />
+            class="absolute inset-0 w-full h-full object-cover brightness-75" />
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
           <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
             Explore Boundless Worlds
@@ -47,7 +47,7 @@
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
       <div class="relative w-full h-full">
         <img src="{% static 'img/book8.jpg' %}" alt="Book background 3"
-             class="absolute inset-0 w-full h-full object-cover brightness-75" />
+            class="absolute inset-0 w-full h-full object-cover brightness-75" />
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-white animate-fadeIn">
           <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slideUp">
             Read. Reflect. Repeat.
@@ -133,159 +133,162 @@
 {% block content %}
 <div class="container mx-auto px-4 mt-10 mb-[50px]">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <!-- Card Start -->
-        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-hidden">
+
+        <!-- Card 1 -->
+        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl 
+                    transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 
+                    dark:hover:bg-gray-700 overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
             <img class="object-cover w-full md:w-48 h-60 md:h-full rounded-t-xl md:rounded-none md:rounded-s-xl" 
-                src="{% static 'img/Vardan.jpeg' %}" 
-                alt="Vipsna Cover" />
+                src="{% static 'img/Vardan.jpeg' %}" alt="Vardan Cover" />
             <div class="flex flex-col justify-between p-5 flex-1">
                 <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">वरदान</h5> 
                 <p class="text-sm text-gray-700 dark:text-gray-400 mb-4 leading-relaxed">
-                    "वरदान" का अर्थ होता है "आशीर्वाद" । यह कहानी आस्था, त्याग और निःस्वार्थता के इर्द-गिर्द घूमती है, जो दिखाती है कि सच्ची भक्ति और दयालु हृदय चमत्कार कर सकते हैं।
+                    "वरदान" का अर्थ होता है "आशीर्वाद"। यह कहानी आस्था, त्याग और निःस्वार्थता के इर्द-गिर्द घूमती है।
                 </p>
                 <div class="flex flex-col gap-2">
                     <a href="https://drive.google.com/file/d/1OSHgazAfiW6Pf2NVrPah6VnyEzVUQRja/view?usp=drive_link" target="_blank" rel="noopener">
-                        <button type="button" class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">
-                            Read
-                        </button>
+                        <button class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">Read</button>
+                    </a>
                     <a href="https://drive.google.com/file/d/1OSHgazAfiW6Pf2NVrPah6VnyEzVUQRja/view?usp=drive_link" download>
-                        <button type="button" class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
+                        <button class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Card End -->
 
-        <!-- Repeat for other cards with same enhancements -->
-
-        <!-- Card Start -->
-        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-hidden">
+        <!-- Card 2 -->
+        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl 
+                    transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 
+                    dark:hover:bg-gray-700 overflow-hidden"
+            data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
             <img class="object-cover w-full md:w-48 h-60 md:h-full rounded-t-xl md:rounded-none md:rounded-s-xl" 
-                src="{% static 'img/doBailon.jpeg' %}" 
-                alt="Vipsna Cover" />
+                src="{% static 'img/doBailon.jpeg' %}" alt="Do Bailon Ki Katha Cover" />
             <div class="flex flex-col justify-between p-5 flex-1">
                 <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">दो बैलों की कथा</h5> 
                 <p class="text-sm text-gray-700 dark:text-gray-400 mb-4 leading-relaxed">
-                    "दो बैलों की कथा" मुंशी प्रेमचंद की एक प्रेरणादायक कहानी है, जो दो बैलों के माध्यम से मित्रता, आत्म-सम्मान और अन्याय के खिलाफ संघर्ष को दर्शाती है।
+                    मुंशी प्रेमचंद की यह प्रेरणादायक कहानी मित्रता और आत्मसम्मान को दर्शाती है।
                 </p>
                 <div class="flex flex-col gap-2">
                     <a href="https://drive.google.com/file/d/1jq5yzW6haGMg8s_YUrl7tncskqpLScNk/view?usp=drive_link" target="_blank" rel="noopener">
-                        <button type="button" class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">
-                            Read
-                        </button>
+                        <button class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">Read</button>
+                    </a>
                     <a href="https://drive.google.com/file/d/1jq5yzW6haGMg8s_YUrl7tncskqpLScNk/view?usp=drive_link" download>
-                        <button type="button" class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
+                        <button class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Card End -->
 
-        <!-- Card Start -->
-        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-hidden">
+        <!-- Card 3 -->
+        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl 
+                    transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 
+                    dark:hover:bg-gray-700 overflow-hidden"
+            data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
             <img class="object-cover w-full md:w-48 h-60 md:h-full rounded-t-xl md:rounded-none md:rounded-s-xl" 
-                src="{% static 'img/boodhiKaki.jpeg' %}" 
-                alt="Vipsna Cover" />
+                src="{% static 'img/boodhiKaki.jpeg' %}" alt="Boodhi Kaki Cover" />
             <div class="flex flex-col justify-between p-5 flex-1">
                 <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">बूढ़ी काकी</h5> 
                 <p class="text-sm text-gray-700 dark:text-gray-400 mb-4 leading-relaxed">
-                    "बूढ़ी काकी" मुंशी प्रेमचंद की मार्मिक कहानी है, जो एक बुज़ुर्ग महिला की उपेक्षा और भावनात्मक भूख को संवेदनशीलता से प्रस्तुत करती है।
+                    यह मार्मिक कहानी एक बुज़ुर्ग महिला की उपेक्षा और भावनात्मक भूख को संवेदनशीलता से प्रस्तुत करती है।
                 </p>
                 <div class="flex flex-col gap-2">
                     <a href="https://drive.google.com/file/d/1bVzwbn4yeoueJfJab9Ipvcc7fM8emgWP/view?usp=drive_link" target="_blank" rel="noopener">
-                        <button type="button" class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">
-                            Read
-                        </button>
+                        <button class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">Read</button>
                     </a>
                     <a href="https://drive.google.com/file/d/1bVzwbn4yeoueJfJab9Ipvcc7fM8emgWP/view?usp=drive_link" download>
-                        <button type="button" class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
+                        <button class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Card End -->
 
-        <!-- Card Start -->
-        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-hidden">
+        <!-- Card 4 -->
+        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl 
+                    transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 
+                    dark:hover:bg-gray-700 overflow-hidden"
+            data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
             <img class="object-cover w-full md:w-48 h-60 md:h-full rounded-t-xl md:rounded-none md:rounded-s-xl" 
-                src="{% static 'img/banaras.jpeg' %}" 
-                alt="Vipsna Cover" />
+                src="{% static 'img/banaras.jpeg' %}" alt="Banaras Talkies Cover" />
             <div class="flex flex-col justify-between p-5 flex-1">
                 <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">बनारस टॉकीज़</h5> 
                 <p class="text-sm text-gray-700 dark:text-gray-400 mb-4 leading-relaxed">
-                    "बनारस टॉकीज़" सत्य व्यास द्वारा लिखित एक हास्य-व्यंग्यात्मक उपन्यास है, जो बनारस हिंदू विश्वविद्यालय के छात्रों की कॉलेज लाइफ, दोस्ती और संघर्षों को मजेदार अंदाज़ में पेश करता है।
+                    यह हास्य-व्यंग्यात्मक उपन्यास कॉलेज जीवन और दोस्ती को मजेदार अंदाज़ में पेश करता है।
                 </p>
                 <div class="flex flex-col gap-2">
                     <a href="https://drive.google.com/file/d/1uku2DlNo8SuziFoe8OnQ7RZ0oBRRLUGR/view?usp=drive_link" target="_blank" rel="noopener">
-                        <button type="button" class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">
-                            Read
-                        </button>
+                        <button class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">Read</button>
                     </a>
-
-
                     <a href="https://drive.google.com/file/d/1uku2DlNo8SuziFoe8OnQ7RZ0oBRRLUGR/view?usp=drive_link" download>
-                        <button type="button" class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
+                        <button class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Card End -->
 
-        <!-- Card Start -->
-        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-hidden">
+        <!-- Card 5 -->
+        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl 
+                    transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 
+                    dark:hover:bg-gray-700 overflow-hidden"
+            data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
             <img class="object-cover w-full md:w-48 h-60 md:h-full rounded-t-xl md:rounded-none md:rounded-s-xl" 
-                src="{% static 'img/sarav.jpeg' %}" 
-                alt="Vipsna Cover" />
+                src="{% static 'img/sarav.jpeg' %}" alt="Swatantryottar Cover" />
             <div class="flex flex-col justify-between p-5 flex-1">
                 <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">स्वातंत्र्योत्तर</h5> 
                 <p class="text-sm text-gray-700 dark:text-gray-400 mb-4 leading-relaxed">
-                    "स्वातंत्र्योत्तर हिंदी कहानी" एक महत्वपूर्ण साहित्यिक संग्रह है, जो आज़ादी के बाद के सामाजिक, राजनीतिक और सांस्कृतिक परिवर्तनों को हिंदी कहानियों के माध्यम से प्रस्तुत करता है।
+                    यह साहित्यिक संग्रह आज़ादी के बाद के सामाजिक और सांस्कृतिक परिवर्तनों को दर्शाता है।
                 </p>
                 <div class="flex flex-col gap-2">
                     <a href="https://drive.google.com/file/d/1UBGw7d9pctl21A9vnJs6tWhUp1W9NjCK/view?usp=drive_link" target="_blank" rel="noopener">
-                        <button type="button" class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">
-                            Read
+                        <button class="h-10 w-full bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">Read</button>
+                    </a>
                     <a href="https://drive.google.com/file/d/1UBGw7d9pctl21A9vnJs6tWhUp1W9NjCK/view?usp=drive_link" download>
-                        <button type="button" class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
+                        <button class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Card End -->
 
-        <!-- Card Start -->
-        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-hidden">
+        <!-- Card 6 -->
+        <div class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-xl shadow-md max-w-xl 
+                    transition duration-300 hover:shadow-lg hover:scale-[1.02] dark:border-gray-700 dark:bg-gray-800 
+                    dark:hover:bg-gray-700 overflow-hidden"
+            data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
             <img class="object-cover w-full md:w-48 h-60 md:h-full rounded-t-xl md:rounded-none md:rounded-s-xl" 
-                src="{% static 'img/anubhav.jpeg' %}" 
-                alt="Vipsna Cover" />
+                src="{% static 'img/anubhav.jpeg' %}" alt="Kahani Anubhav Cover" />
             <div class="flex flex-col justify-between p-5 flex-1">
                 <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">कहानी-अनुभव</h5> 
                 <p class="text-sm text-gray-700 dark:text-gray-400 mb-4 leading-relaxed">
-                    "कहानी-अनुभव" हिंदी की एक शिक्षाप्रद पुस्तक है, जिसमें विविध कहानियों के माध्यम से मानवीय मूल्यों और जीवन अनुभवों को सहज रूप में प्रस्तुत किया गया है।
+                    विविध कहानियों का यह संग्रह मानवीय मूल्यों और जीवन अनुभवों को सहज रूप में प्रस्तुत करता है।
                 </p>
                 <div class="flex flex-col gap-2">
-                    <button type="button" class="h-10 bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">Read</button>
+                    <button class="h-10 bg-green-600 text-white font-semibold rounded-md hover:bg-amber-400 transition duration-300 shadow-sm">Read</button>
                     <a href="https://drive.google.com/file/d/1OzlE9BLbYjLWE0KjeUOUsWZJ704wKaT5/view?usp=drive_link" download>
-                        <button type="button" class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
+                        <button class="h-9 w-full px-4 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-[wheat] hover:text-black transition duration-300 shadow-sm">Download</button>
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Card End -->
+
     </div>
 
     <!-- "See All" Button -->
-    <div class="flex justify-center mt-10">
+    <div class="flex justify-center mt-10" data-aos="zoom-in" data-aos-delay="700">
         <a href="{% url 'allcard' %}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
             See All
         </a>
     </div>
 </div>
 
+<!-- AOS CSS + JS -->
 
-
-
-        {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
+</script>
 {% endblock %}
+
 

@@ -1,27 +1,54 @@
-{% extends 'layout.html' %}
-{% block title %}
-    Show Feedback
-{% endblock %}
-
+{% extends "layout.html" %}
 {% block content %}
-    <div class="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 pt-12 pb-0 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-        <div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-10 animate-fadeInUp">
-            <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">
-                🌟 Feedback Received
-            </h1>
-            <p class="text-lg text-gray-700 mb-6 text-center">
-                Thank you for your feedback! Here are the details:
-            </p>
-            <div class="space-y-4">
-                {% for feedback in feedbacks %}
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h2 class="text-xl font-semibold text-indigo-600">{{ feedback.title }}</h2>
-                        <p class="mt-2 text-gray-700">{{ feedback.content }}</p>
-                        <p class="mt-4 text-sm text-gray-500">Submitted on: {{ feedback.created_at|date:"Y-m-d H:i" }}</p>
-                    </div>
-                {% endfor %}
-            </div>
+
+<!-- Container -->
+<div class="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 py-12 px-4 sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-10 animate-fadeInUp mt-7">User Feedback</h1>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    {% for feedback in feedbacks %}
+    <div class="bg-white rounded-2xl shadow-xl p-6 transition transform hover:scale-105 duration-300 animate-fadeInUp relative group">
+
+        <!-- Feedback Details -->
+        <h2 class="text-xl font-bold text-indigo-600 mb-2">{{ feedback.name }}</h2>
+        <p class="text-gray-500 text-sm mb-1">{{ feedback.email }}</p>
+        <p class="text-gray-700 mt-3 line-clamp-4">{{ feedback.message }}</p>
+
+        <!-- Button Bar -->
+        <div class="mt-6 flex justify-between space-x-2">
+        <a href="{% url 'update_feedback' feedback.id %}"
+            class="px-4 py-2 bg-yellow-400 text-white text-sm font-semibold rounded-lg shadow hover:bg-yellow-500 transition duration-300">
+            ✏️ Update
+        </a>
+        <a href="{% url 'delete_feedback' feedback.id %}"
+            class="px-4 py-2 bg-red-500 text-white text-sm font-semibold rounded-lg shadow hover:bg-red-600 transition duration-300">
+            🗑️ Delete
+        </a>
         </div>
     </div>
+    {% empty %}
+    <p class="col-span-full text-center text-gray-600">No feedback submitted yet.</p>
+    {% endfor %}
+    </div>
+</div>
+</div>
 
+<!-- Animations -->
+<style>
+@keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    transform: translateY(40px);
+    }
+    100% {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out both;
+}
+</style>
 {% endblock %}

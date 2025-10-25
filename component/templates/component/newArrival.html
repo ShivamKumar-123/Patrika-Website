@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block header %}
-  <div id="controls-carousel" class="relative w-full mt-[70px]" data-carousel="static">
+  <div id="controls-carousel" class="relative w-full mt-[0px]" data-carousel="static">
     <!-- Carousel wrapper -->
     <div class="relative h-[300px] md:h-[500px] overflow-hidden rounded-lg bg-indigo-100 text-white">
 
@@ -144,11 +144,17 @@
 
 
 {% block content %}
-
 <div class="container mx-auto px-4 mt-10 mb-[50px]">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+
     {% for book in books %}
-    <div class="relative w-full max-w-[360px] flex flex-col bg-white border border-gray-200 rounded-xl shadow-md dark:border-gray-700 dark:bg-gray-800 overflow-hidden transition-transform transform hover:scale-[1.03] hover:shadow-xl duration-300 group">
+    <!-- Card -->
+    <div 
+      class="relative w-full max-w-[360px] flex flex-col bg-white border border-gray-200 rounded-xl shadow-md dark:border-gray-700 dark:bg-gray-800 overflow-hidden transition-transform transform hover:scale-[1.03] hover:shadow-xl duration-300 group"
+      data-aos="fade-up"
+      data-aos-delay="{{ forloop.counter|add:2 }}00"
+      data-aos-duration="1000"
+    >
 
       <!-- Coming Soon Tag -->
       <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded shadow-md z-20">
@@ -161,20 +167,45 @@
         <img class="object-cover w-full h-full" src="{{ book.image.url }}" alt="{{ book.name }}">
 
         <!-- Hover Overlay -->
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300 z-10">
-          <h5 class="text-white text-xl font-semibold animate-slideUp">{{ book.name }}</h5>
-          <p class="text-white text-sm mt-2 line-clamp-3 animate-fadeIn delay-150">{{ book.description }}</p>
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-500 z-10">
+          <!-- Book Name -->
+          <h5 class="text-white text-xl font-semibold mb-2 animate-slideUp">{{ book.name }}</h5>
+          
+          <!-- Description -->
+          <p class="text-white text-sm mb-4 line-clamp-4 animate-fadeIn delay-150">{{ book.description }}</p>
+
+          <!-- Action Buttons -->
+          {% if user.id == 1 %}
+          <div class="flex flex-wrap justify-center gap-4">
+            {% if book.id %}
+              <!-- Update Button -->
+              <a href="{% url 'update_new_arrival' book.id %}"
+                class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2 rounded-full shadow-md transition-all duration-300">
+                ✏️ Update
+              </a>
+
+              <!-- Delete Button -->
+              <a href="{% url 'delete_new_arrival' book.id %}"
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold px-5 py-2 rounded-full shadow-md transition-all duration-300">
+                🗑️ Delete
+              </a>
+            {% else %}
+              <span class="text-sm text-gray-300 italic">❌ Invalid Book</span>
+            {% endif %}
+          </div>
+          {% endif %}
         </div>
       </div>
       {% endif %}
 
     </div>
+    <!-- End Card -->
     {% endfor %}
+
   </div>
 </div>
 
-
-<!-- Animations -->
+<!-- Extra Animations -->
 <style>
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -187,18 +218,15 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
 .animate-slideUp {
-  animation: slideUp 0.6s ease-out forwards;
+  animation: slideUp 0.8s ease-out forwards;
 }
 
 .delay-150 {
   animation-delay: 0.15s;
 }
 </style>
-
-
-
 {% endblock %}

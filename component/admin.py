@@ -9,7 +9,7 @@ class AllCardsAdmin(admin.ModelAdmin):
     list_display = ("name","description","type")
 
 class NewArrivalAdmin(admin.ModelAdmin):
-    list_display = ("name","description","type")
+    list_display = ("id","name","description","type")
 
 
 class FeedBackAdmin(admin.ModelAdmin):
